@@ -16,11 +16,32 @@ public class TripsController : ControllerBase
         {
             var useCase = new RegisterTripUseCase();
 
-            useCase.Execute(request);
+            var response = useCase.Execute(request);
 
-            return Created();
+            return Created(string.Empty, response);
         }
         catch (TripException ex) 
+        {
+            return BadRequest(ex.Message);
+        }
+        catch
+        {
+            return StatusCode(StatusCodes.Status500InternalServerError, "Erro desconhecido"); //TODO Forma de retirar mensagens via HARD CODE
+        }
+    }
+
+    [HttpGet]
+    public IActionResult GetAll()
+    {
+        try
+        {
+            var useCase = new GetAllTripUseCase();
+
+            var result = useCase.Execute();
+
+            return Ok(result);
+        }
+        catch (TripException ex)
         {
             return BadRequest(ex.Message);
         }
