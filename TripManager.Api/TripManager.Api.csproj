@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -13,6 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\TripManager.Application\TripManager.Application.csproj" />
     <ProjectReference Include="..\TripManager.Communication\TripManager.Communication.csproj" />
+    <ProjectReference Include="..\TripManager.Exception\TripManager.Exception.csproj" />
   </ItemGroup>
 
 </Project>
