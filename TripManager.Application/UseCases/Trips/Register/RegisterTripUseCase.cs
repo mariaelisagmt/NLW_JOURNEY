@@ -1,4 +1,6 @@
 ﻿using TripManager.Communication.Requests;
+using TripManager.Exception;
+using TripManager.Exception.ExceptionBase;
 
 namespace TripManager.Application.UseCases.Trips.Register;
 
@@ -12,13 +14,12 @@ public class RegisterTripUseCase
     private void Validate(RequestRegisterTripJson request)
     {
         if (String.IsNullOrWhiteSpace(request.Name))
-            throw new ArgumentException("Nome não pode ser vazio");
+            throw new TripException(ResourceErrorMessages.NAME_EMPTY);
         
-        //INFO UTC = Data de todos os paises, o datetime.now pega do pc/servidor
-        if (request.StartDate < DateTime.UtcNow)
-            throw new ArgumentException("A viagem não pode ser registrada em uma data anterior");
+        if (request.StartDate.Date < DateTime.UtcNow.Date)
+            throw new TripException(ResourceErrorMessages.DATE_TRIP_MUST_BE_LATER_THAN_TODAY);
 
-        if (request.EndDate < request.StartDate)
-            throw new ArgumentException("A viagem deve terminar apos a data de inicio");
+        if (request.EndDate.Date < request.StartDate.Date)
+            throw new TripException(ResourceErrorMessages.END_DATE_TRIP_MUST_BE_LATER_START_DATE);
     }
 }
