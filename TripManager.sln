@@ -3,12 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Artifacts", "Artifacts", "{169665CC-FCD2-4EAA-AACB-3AED0CAEED5B}"
-	ProjectSection(SolutionItems) = preProject
-		.gitignore = .gitignore
-		README.md = README.md
-	EndProjectSection
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TripManager.Application", "TripManager.Application\TripManager.Application.csproj", "{0F9E4A17-59AD-42EA-A363-2CF59079EFD6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TripManager.Communication", "TripManager.Communication\TripManager.Communication.csproj", "{3729DC23-1404-4CF1-8EFF-16A5EE4E77C7}"
@@ -20,6 +14,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{42035A51-DADB-4467-A5DB-199956CFD95D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TripManager.Api", "TripManager.Api\TripManager.Api.csproj", "{07C3AEC4-8E48-49E0-8AB0-89309D4B93C9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{75A3687A-6473-405A-8055-3D22E661ECBD}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,6 +50,13 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0F9E4A17-59AD-42EA-A363-2CF59079EFD6} = {75A3687A-6473-405A-8055-3D22E661ECBD}
+		{3729DC23-1404-4CF1-8EFF-16A5EE4E77C7} = {75A3687A-6473-405A-8055-3D22E661ECBD}
+		{0B7D4A87-3C9A-4D10-A470-54149747E144} = {75A3687A-6473-405A-8055-3D22E661ECBD}
+		{03B33D7C-1FDB-44B6-8ECD-449C6EB44A5C} = {75A3687A-6473-405A-8055-3D22E661ECBD}
+		{07C3AEC4-8E48-49E0-8AB0-89309D4B93C9} = {75A3687A-6473-405A-8055-3D22E661ECBD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {84D9757E-A1C7-4D12-93BB-15D530DA8893}

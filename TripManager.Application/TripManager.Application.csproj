@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TripManager.Communication\TripManager.Communication.csproj" />
+    <ProjectReference Include="..\TripManager.Exception\TripManager.Exception.csproj" />
+    <ProjectReference Include="..\TripManager.Infrastructure\TripManager.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
