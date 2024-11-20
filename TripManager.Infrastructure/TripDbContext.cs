@@ -11,4 +11,11 @@ public class TripDbContext : DbContext
     {
         optionsBuilder.UseSqlite("Data Source = C:\\Users\\maria\\Downloads\\JourneyDatabase.db");
     }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        modelBuilder.Entity<Activity>().ToTable("Activities");
+    }
 }

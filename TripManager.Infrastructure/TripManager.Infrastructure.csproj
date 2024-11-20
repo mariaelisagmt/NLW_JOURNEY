@@ -15,8 +15,4 @@
     <ProjectReference Include="..\TripManager.Communication\TripManager.Communication.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="NewFolder\" />
-  </ItemGroup>
-
 </Project>

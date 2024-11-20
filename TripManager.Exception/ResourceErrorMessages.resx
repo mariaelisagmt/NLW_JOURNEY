@@ -126,4 +126,7 @@
   <data name="END_DATE_TRIP_MUST_BE_LATER_START_DATE" xml:space="preserve">
     <value>The end date of the trip must be equal to or later than the Start Date.</value>
   </data>
+  <data name="TRIP_NOT_FOUND" xml:space="preserve">
+    <value>Trip not found</value>
+  </data>
 </root>
