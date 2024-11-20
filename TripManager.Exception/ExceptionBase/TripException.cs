@@ -1,9 +1,12 @@
-﻿namespace TripManager.Exception.ExceptionBase;
+﻿using System.Net;
 
-public class TripException : System.Exception
+namespace TripManager.Exception.ExceptionBase;
+
+public abstract class TripException : System.Exception
 {
     public TripException(string message) : base(message)
-    {
-        
+    {        
     }
+
+    public abstract HttpStatusCode GetStatusCode();
 }

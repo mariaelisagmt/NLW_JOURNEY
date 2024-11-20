@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TripManager.Application.UseCases.Trips.Register;
 using TripManager.Communication.Requests;
-using TripManager.Exception.ExceptionBase;
+using TripManager.Communication.Response;
 
 namespace TripManager.Api.Controllers;
 
@@ -10,44 +10,32 @@ namespace TripManager.Api.Controllers;
 public class TripsController : ControllerBase
 {
     [HttpPost]
+    [ProducesResponseType(typeof(ResponseShortTripJson), StatusCodes.Status201Created)]
+    [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
     public IActionResult Register([FromBody] RequestRegisterTripJson request)
     {
-        try
-        {
-            var useCase = new RegisterTripUseCase();
-
-            var response = useCase.Execute(request);
-
-            return Created(string.Empty, response);
-        }
-        catch (TripException ex) 
-        {
-            return BadRequest(ex.Message);
-        }
-        catch
-        {
-            return StatusCode(StatusCodes.Status500InternalServerError, "Erro desconhecido"); //TODO Forma de retirar mensagens via HARD CODE
-        }
+        var useCase = new RegisterTripUseCase();
+        var response = useCase.Execute(request);
+        return Created(string.Empty, response);
     }
 
     [HttpGet]
+    [ProducesResponseType(typeof(ResponseTripsJson), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
     public IActionResult GetAll()
     {
-        try
-        {
-            var useCase = new GetAllTripUseCase();
+        var useCase = new GetAllTripUseCase();
+        var result = useCase.Execute();
+        return Ok(result);
+    }
 
-            var result = useCase.Execute();
-
-            return Ok(result);
-        }
-        catch (TripException ex)
-        {
-            return BadRequest(ex.Message);
-        }
-        catch
-        {
-            return StatusCode(StatusCodes.Status500InternalServerError, "Erro desconhecido"); //TODO Forma de retirar mensagens via HARD CODE
-        }
+    [HttpGet("{id}")]
+    [ProducesResponseType(typeof(ResponseTripJson), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
+    public IActionResult GetById([FromRoute] Guid id)
+    {
+        var useCase = new GetByIdUseCase();
+        var result = useCase.Execute(id);
+        return Ok(result);
     }
 }

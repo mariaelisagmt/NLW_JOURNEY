@@ -37,12 +37,12 @@ public class RegisterTripUseCase
     private void Validate(RequestRegisterTripJson request)
     {
         if (String.IsNullOrWhiteSpace(request.Name))
-            throw new TripException(ResourceErrorMessages.NAME_EMPTY);
+            throw new ErrorOnValidationException(ResourceErrorMessages.NAME_EMPTY);
         
         if (request.StartDate.Date < DateTime.UtcNow.Date)
-            throw new TripException(ResourceErrorMessages.DATE_TRIP_MUST_BE_LATER_THAN_TODAY);
+            throw new ErrorOnValidationException(ResourceErrorMessages.DATE_TRIP_MUST_BE_LATER_THAN_TODAY);
 
         if (request.EndDate.Date < request.StartDate.Date)
-            throw new TripException(ResourceErrorMessages.END_DATE_TRIP_MUST_BE_LATER_START_DATE);
+            throw new ErrorOnValidationException(ResourceErrorMessages.END_DATE_TRIP_MUST_BE_LATER_START_DATE);
     }
 }

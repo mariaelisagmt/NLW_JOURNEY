@@ -1,4 +1,4 @@
-﻿using TripManager.Communication.Enums;
+﻿using TripManager.Infrastructure.Enums;
 
 namespace TripManager.Infrastructure.Entities;
 
