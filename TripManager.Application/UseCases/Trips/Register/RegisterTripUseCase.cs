@@ -1,7 +1,5 @@
 ﻿using TripManager.Communication.Requests;
 using TripManager.Communication.Response;
-using TripManager.Exception;
-using TripManager.Exception.ExceptionBase;
 using TripManager.Infrastructure;
 using TripManager.Infrastructure.Entities;
 
@@ -36,13 +34,8 @@ public class RegisterTripUseCase
 
     private void Validate(RequestRegisterTripJson request)
     {
-        if (String.IsNullOrWhiteSpace(request.Name))
-            throw new ErrorOnValidationException(ResourceErrorMessages.NAME_EMPTY);
-        
-        if (request.StartDate.Date < DateTime.UtcNow.Date)
-            throw new ErrorOnValidationException(ResourceErrorMessages.DATE_TRIP_MUST_BE_LATER_THAN_TODAY);
+        var validator = new RegisterTripValidator();
 
-        if (request.EndDate.Date < request.StartDate.Date)
-            throw new ErrorOnValidationException(ResourceErrorMessages.END_DATE_TRIP_MUST_BE_LATER_START_DATE);
+        var result = validator.Validate(request);
     }
 }

@@ -30,12 +30,22 @@ public class TripsController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    [ProducesResponseType(typeof(ResponseTripJson), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
     public IActionResult GetById([FromRoute] Guid id)
     {
-        var useCase = new GetByIdUseCase();
+        var useCase = new GetByIdTripUseCase();
         var result = useCase.Execute(id);
         return Ok(result);
+    }
+
+    [HttpDelete("{id}")]
+    [ProducesResponseType(typeof(ResponseTripJson), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
+    public IActionResult Delete([FromRoute] Guid id)
+    {
+        var useCase = new DeleteByIdTripUseCase();
+        useCase.Execute(id);
+        return NoContent();
     }
 }

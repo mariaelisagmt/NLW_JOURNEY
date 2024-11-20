@@ -7,7 +7,7 @@ using TripManager.Infrastructure;
 
 namespace TripManager.Application.UseCases.Trips.Register;
 
-public class GetByIdUseCase
+public class GetByIdTripUseCase
 {
     public ResponseTripJson Execute(Guid id)
     {
