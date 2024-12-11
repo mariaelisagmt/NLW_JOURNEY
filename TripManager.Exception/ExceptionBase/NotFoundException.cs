@@ -2,10 +2,11 @@
 
 namespace TripManager.Exception.ExceptionBase;
 
-public class NotFoundException : TripException
+public class NotFoundException(string message) : TripException(message)
 {
-    public NotFoundException(string message) : base(message)
-    {        
+    public override IList<string> GetErroMessages()
+    {
+        return [ Message ];
     }
 
     public override HttpStatusCode GetStatusCode()

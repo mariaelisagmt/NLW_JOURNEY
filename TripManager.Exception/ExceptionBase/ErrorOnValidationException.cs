@@ -4,12 +4,18 @@ namespace TripManager.Exception.ExceptionBase;
 
 public class ErrorOnValidationException : TripException
 {
-    public ErrorOnValidationException(string message) : base(message)
-    {        
+    private readonly IList<string> _errors;
+    public ErrorOnValidationException(IList<string> messages) : base(string.Empty)
+    {    
+        _errors = messages;
     }
 
     public override HttpStatusCode GetStatusCode()
     {
         return HttpStatusCode.BadRequest;
+    }
+    public override IList<string> GetErroMessages()
+    {
+        return _errors;
     }
 }

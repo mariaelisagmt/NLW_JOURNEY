@@ -1,5 +1,6 @@
 ﻿using TripManager.Communication.Requests;
 using TripManager.Communication.Response;
+using TripManager.Exception.ExceptionBase;
 using TripManager.Infrastructure;
 using TripManager.Infrastructure.Entities;
 
@@ -37,5 +38,12 @@ public class RegisterTripUseCase
         var validator = new RegisterTripValidator();
 
         var result = validator.Validate(request);
+
+        if(!result.IsValid)
+        {
+            var errorMessages = result.Errors.Select(error => error.ErrorMessage).ToList();
+
+            throw new ErrorOnValidationException(errorMessages);
+        }
     }
 }
