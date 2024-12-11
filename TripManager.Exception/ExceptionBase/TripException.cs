@@ -9,4 +9,5 @@ public abstract class TripException : System.Exception
     }
 
     public abstract HttpStatusCode GetStatusCode();
+    public abstract IList<string> GetErroMessages();
 }
