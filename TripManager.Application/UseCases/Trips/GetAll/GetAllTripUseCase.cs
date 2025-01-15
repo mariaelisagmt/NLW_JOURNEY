@@ -1,4 +1,4 @@
-﻿using TripManager.Communication.Response;
+﻿using TripManager.Communication.Responses;
 using TripManager.Infrastructure;
 
 namespace TripManager.Application.UseCases.Trips.Register;

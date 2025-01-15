@@ -1,5 +1,5 @@
 ﻿using TripManager.Communication.Requests;
-using TripManager.Communication.Response;
+using TripManager.Communication.Responses;
 using TripManager.Exception.ExceptionBase;
 using TripManager.Infrastructure;
 using TripManager.Infrastructure.Entities;

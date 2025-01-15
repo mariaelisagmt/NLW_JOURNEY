@@ -1,4 +1,4 @@
-﻿namespace TripManager.Communication.Response;
+﻿namespace TripManager.Communication.Responses;
 
 public class ResponseTripsJson
 {
