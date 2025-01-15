@@ -1,6 +1,4 @@
-﻿using TripManager.Communication.Requests;
-
-namespace TripManager.Communication.Response;
+﻿namespace TripManager.Communication.Responses;
 
 public class ResponseTripJson
 {

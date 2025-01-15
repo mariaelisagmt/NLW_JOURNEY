@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TripManager.Communication.Requests;
-using TripManager.Communication.Response;
+using TripManager.Communication.Responses;
 using TripManager.Exception;
 using TripManager.Exception.ExceptionBase;
 using TripManager.Infrastructure;

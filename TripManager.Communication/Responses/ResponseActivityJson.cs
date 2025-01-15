@@ -1,6 +1,6 @@
 ﻿using TripManager.Communication.Enums;
 
-namespace TripManager.Communication.Requests;
+namespace TripManager.Communication.Responses;
 
 public class ResponseActivityJson
 {
